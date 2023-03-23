@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
 })
 export class ConversorComponent {
 
-  private API_KEY: string = 'xaBM9gQSpONNRrdd1esErJ3PNyH8uz7e'
+  
 
 }
