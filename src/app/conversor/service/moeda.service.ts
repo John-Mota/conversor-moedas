@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Moeda } from '../models/moedas.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class MoedaService {
 
   private moedas: Moeda[];
@@ -45,7 +44,19 @@ export class MoedaService {
   ];
 
   public listarTodas(): Moeda[] {
+	if (this.moedas) {
+		return this.moedas
+	}
 
+	this.moedas = [];
+
+	for (let moedasObj of this.moedasObj) {
+		let moeda: Moeda = new Moeda();
+		Object.assign(moeda, moedasObj);
+		this.moedas.push(moeda);
+	}
+
+	return this.moedas;
   }
 
   
