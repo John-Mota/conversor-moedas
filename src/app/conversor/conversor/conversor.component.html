@@ -1,6 +1,7 @@
 <br />
 <div class="alert alert-danger" 
-	role="alert">
+	role="alert"
+    *ngIf="possuiError">
 	Erro obtendo dados. Tente novamente.
 </div>
 <div class="panel panel-success">
@@ -8,24 +9,27 @@
 		Selecione a moeda a ser convertida
 	</div>
 	<div class="panel-body text-center">
-        <form class="form-inline">
+        <form #conversaoForm="ngForm" class="form-inline">
 	        <div class="container">
-                <div class="row g-3" >
-                
+                <div class="row" >
                     <div class="col-auto">
                         <input
                             type="text"
                             name="valor"
                             class="form-control text-right"
                             placeholder="0"
+                            [(ngModel)]="conversao.valor"
                             required>
                     </div>
                     <div class="col-auto">
                         <select
                             name="moedaDe"
                             class="form-control"
+                            [(ngModel)]="conversao.moedaDe"
                             required>
-                            <option>
+                            <option *ngFor="let moeda of moeda"
+                            [value]="moeda.sigla">
+                            {{moeda.sigla}} - {{moeda.descricao}}
                             </option>
                         </select>
                     </div>
@@ -37,8 +41,12 @@
                         <select
                             name="moedaPara"
                             class="form-control"
+                            [(ngModel)]="conversao.moedaPara"
                             required>
-                            <option>
+                            <option
+                            *ngFor="let moeda of moeda"
+                            [value]="moeda.sigla">
+                            {{moeda.sigla}} - {{moeda.descricao}}
                             </option>
                         </select>
                     </div>
@@ -46,7 +54,11 @@
                         <input
                             type="submit"
                             value="Converter"
-                            class="btn btn-success">
+                            class="btn btn-success"
+                            data-toggle="modal"
+                            data-target="#modalContacao"
+                            (click)="converter()"
+                            [disabled]="!conversaoForm.form.valid">
                     </div>
                 </div>
             </div>
