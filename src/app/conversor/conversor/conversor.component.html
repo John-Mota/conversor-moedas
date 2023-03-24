@@ -8,33 +8,49 @@
 		Selecione a moeda a ser convertida
 	</div>
 	<div class="panel-body text-center">
-	  <form class="form-inline">
-		<input 
-			type="text" 
-			name="valor"
-			class="form-control text-right"
-			placeholder="0" 
-			required>
-		<select 
-			name="moedaDe"
-			class="form-control"
-			required>
-			<option>
-			</option>
-		</select>
-		<span class="glyphicon glyphicon-arrow-right" 
-			aria-hidden="true"></span>
-		<select
-			name="moedaPara"
-			class="form-control"
-			required>
-			<option>
-			</option>
-		</select>
-		<input 
-			type="submit" 
-			value="Converter"
-			class="btn btn-success">
-	  </form>
+        <form class="form-inline">
+	        <div class="container">
+                <div class="row g-3" >
+                
+                    <div class="col-auto">
+                        <input
+                            type="text"
+                            name="valor"
+                            class="form-control text-right"
+                            placeholder="0"
+                            required>
+                    </div>
+                    <div class="col-auto">
+                        <select
+                            name="moedaDe"
+                            class="form-control"
+                            required>
+                            <option>
+                            </option>
+                        </select>
+                    </div>
+                    <div class="col-auto">
+                        <span class="glyphicon glyphicon-arrow-right"
+                            aria-hidden="true"></span>
+                    </div>
+                    <div class="col-auto">
+                        <select
+                            name="moedaPara"
+                            class="form-control"
+                            required>
+                            <option>
+                            </option>
+                        </select>
+                    </div>
+                    <div class="col-auto">
+                        <input
+                            type="submit"
+                            value="Converter"
+                            class="btn btn-success">
+                    </div>
+                </div>
+            </div>
+        </form>
 	 </div>
 </div>
+
