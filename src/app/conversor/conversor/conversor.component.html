@@ -19,6 +19,7 @@
                             class="form-control text-right"
                             placeholder="0"
                             [(ngModel)]="conversao.valor"
+                            numero
                             required>
                     </div>
                     <div class="col-auto">
@@ -59,10 +60,13 @@
                             data-target="#modalContacao"
                             (click)="converter()"
                             [disabled]="!conversaoForm.form.valid">
+                            {{conversaoResponse | json}}
+                            
                     </div>
                 </div>
             </div>
         </form>
+        <hr>
 	 </div>
 </div>
 

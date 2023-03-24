@@ -18,6 +18,7 @@ export class ConversorComponent implements OnInit {
   public conversao: Conversao;
   public conversaoResponse: ConversaoResponse;
   public possuiError: boolean;
+  public name: string = 'Olá'
 
   @ViewChild("conversaoForm") conversaoForm: NgForm
   
@@ -40,10 +41,17 @@ export class ConversorComponent implements OnInit {
   // Efetuando a chamada para conversão de valores
   public converter(): void {
     if (this.conversaoForm.form.valid) {
-      alert('Convertendo' + JSON.stringify(this.conversao))
+      this.conversorService
+      .converter(this.conversao)
+      .subscribe({
+        next: (response) => {
+          this.conversaoResponse = response
+        },
+        error: (error) => {
+          this.possuiError = true
+        }
+      })
     }
   }
-
-  
 
 }
