@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
 
@@ -7,7 +7,10 @@ import { AppComponent } from './app.component';
 import { ConversorModule } from './conversor/conversor.module';
 import { MoedaModule } from './moeda/moeda.module';
 import { ConversaoModule } from './conversao/conversao.module';
-import { RespostaConversaoModule } from './resposta-conversao/resposta-conversao.module';
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
+
+registerLocaleData(localePt, 'pt-BR');
 
 @NgModule({
   declarations: [
@@ -20,9 +23,11 @@ import { RespostaConversaoModule } from './resposta-conversao/resposta-conversao
     ConversorModule,
     MoedaModule,
     ConversaoModule,
-    RespostaConversaoModule
+  
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'pt-BR'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

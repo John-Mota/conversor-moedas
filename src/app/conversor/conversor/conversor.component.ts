@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import * as $ from 'jquery';
+
 
 import { Moeda } from '../models/moedas.model';
 import { Conversao } from '../models/conversao.model';
@@ -31,6 +33,9 @@ export class ConversorComponent implements OnInit {
     this.moeda = this.moedaService.listarTodas();
     this.init();
   }
+
+  
+
 
   // Efetua a chamada para a conversão de valores.
   public init(): void {

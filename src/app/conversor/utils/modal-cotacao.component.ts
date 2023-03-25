@@ -14,7 +14,7 @@ export class ModalCotacaoComponent implements OnInit {
   @Input() id: string;
   @Input() conversaoResponse: ConversaoResponse;
   @Input() conversao: Conversao = new Conversao();
-  @Input() onConfirm: EventEmitter<any> = new EventEmitter<any>();
+  @Output() onConfirm: EventEmitter<any> = new EventEmitter<any>();
 
   constructor ( private conversorService: ConversorService) {}
   
